@@ -11,3 +11,6 @@ Content-Type: application/json
 }
 ###
 delete http://localhost:3000/products/4
+
+###
+http://localhost:3000/totalproducts

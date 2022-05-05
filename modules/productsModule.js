@@ -41,6 +41,7 @@ async function deleteProductDb(id) {
     console.log(connection);
     const sql = `DELETE FROM products WHERE id=? LIMIT 1`;
     const [result] = await connection.execute(sql, [id]);
+    console.log('result', result);
     await connection.close();
     return result;
   } catch (error) {
@@ -49,4 +50,24 @@ async function deleteProductDb(id) {
   }
 }
 
-module.exports = { getProductsDb, addProductDb, deleteProductDb };
+async function totalProductsDb(id) {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    console.log(connection);
+    const sql = `SELECT COUNT(id) FROM products`;
+    const [result] = await connection.query(sql);
+    console.log('result', result);
+    await connection.close();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
+module.exports = {
+  getProductsDb,
+  addProductDb,
+  deleteProductDb,
+  totalProductsDb,
+};

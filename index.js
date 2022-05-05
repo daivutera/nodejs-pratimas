@@ -12,6 +12,7 @@ app.use(cors());
 app.get('/products', productsController.getAllProducts);
 app.post('/products', productsController.postProduct);
 app.delete('/products/:id', productsController.deleteProduct);
+app.get('/totalproducts', productsController.totalProducts);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
