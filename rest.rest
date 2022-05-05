@@ -1,0 +1,11 @@
+get http://localhost:3000/
+###
+post http://localhost:3000/add
+Content-Type: application/json
+
+{
+"image_url": "https://www.topocentras.lt/telefonai-navigacijos-auto-iranga/ismaniosios-apyrankes.html",
+ "title":"Xiaomi",
+  "description":"very good watch",
+   "price": 19.99
+}

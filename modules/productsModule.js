@@ -15,4 +15,24 @@ async function getProductsDb() {
   }
 }
 
-module.exports = getProductsDb;
+async function addProductDb(image_url, title, description, price) {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    console.log(connection);
+    const sql =
+      'INSERT INTO products (image_url, title, description, price) VALUES(?, ?, ?, ?)';
+    const [result] = await connection.execute(sql, [
+      image_url,
+      title,
+      description,
+      price,
+    ]);
+    await connection.close();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
+module.exports = { getProductsDb, addProductDb };

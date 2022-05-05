@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', productsController.getAllProducts);
+app.post('/add', productsController.postProduct);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
