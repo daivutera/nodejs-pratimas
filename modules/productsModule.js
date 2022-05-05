@@ -35,4 +35,18 @@ async function addProductDb(image_url, title, description, price) {
   }
 }
 
-module.exports = { getProductsDb, addProductDb };
+async function deleteProductDb(id) {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    console.log(connection);
+    const sql = `DELETE FROM products WHERE id=? LIMIT 1`;
+    const [result] = await connection.execute(sql, [id]);
+    await connection.close();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
+module.exports = { getProductsDb, addProductDb, deleteProductDb };

@@ -1,6 +1,6 @@
-get http://localhost:3000/
+get http://localhost:3000/products
 ###
-post http://localhost:3000/add
+post http://localhost:3000/products
 Content-Type: application/json
 
 {
@@ -9,3 +9,5 @@ Content-Type: application/json
   "description":"very good watch",
    "price": 19.99
 }
+###
+delete http://localhost:3000/products/4

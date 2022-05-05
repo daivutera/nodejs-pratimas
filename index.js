@@ -9,8 +9,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', productsController.getAllProducts);
-app.post('/add', productsController.postProduct);
+app.get('/products', productsController.getAllProducts);
+app.post('/products', productsController.postProduct);
+app.delete('/products/:id', productsController.deleteProduct);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
