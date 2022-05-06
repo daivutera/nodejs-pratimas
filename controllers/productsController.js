@@ -54,7 +54,7 @@ async function totalProducts(req, res) {
     return;
   }
   console.log('dataDb====', dataDb);
-  res.status(200).send(dataDb);
+  res.status(200).send({ totalCount: dataDb[0]['COUNT(id)'] }); //{ totalCount: dataDb[0]['Count(id)'] }
 }
 
 module.exports = { getAllProducts, postProduct, deleteProduct, totalProducts };

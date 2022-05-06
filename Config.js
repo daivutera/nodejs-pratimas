@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const dbConfig = {
-  password: '',
-  database: 'petras',
-  user: 'root',
-  port: 3306,
-  host: 'localhost',
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  user: process.env.DB_USER,
+  port: process.env.DB_PORT,
+  host: process.env.DB_HOST,
 };
 
 module.exports = dbConfig;
